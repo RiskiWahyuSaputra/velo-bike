@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VELO — Engineered to Move</title>
+  <meta name="description" content="One bicycle. Countless details. A scroll-driven look at every component." />
+  <meta name="theme-color" content="#E9DDC9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="public/assets/bicycle/poster.webp" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="#" data-goto="0" aria-label="VELO — back to top">VELO</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#overview" data-goto="overview">Overview</a>
+      <a href="#engineering" data-goto="engineering">Engineering</a>
+      <a href="#components" data-goto="components">Components</a>
+    </nav>
+    <a class="btn btn--dark nav__cta" href="#components" data-goto="components">Explore the Bike</a>
+  </header>
+
+  <main>
+    <!-- Seluruh landing page = satu section image sequence yang di-scroll -->
+    <section class="sequence" id="sequence" aria-label="Bicycle story">
+      <div class="sequence__sticky">
+        <canvas class="sequence__canvas" id="bike-canvas" aria-hidden="true"></canvas>
+
+        <!-- HERO -->
+        <div class="chapter chapter--hero" data-frames="-1,-1,5,16">
+          <p class="eyebrow">VELO / Model 01</p>
+          <h1 class="display">Engineered<br class="br-m" /> to move.</h1>
+          <div class="hero__foot">
+            <p class="lede">Every detail has a purpose.<br />Every component tells a story.</p>
+            <a class="btn btn--dark" href="#engineering" data-goto="engineering">Discover the Details</a>
+          </div>
+          <p class="scroll-hint">Scroll to explore <span aria-hidden="true">↓</span></p>
+        </div>
+
+        <!-- PHASE 2 — DETAIL -->
+        <div class="chapter chapter--left" data-frames="52,62,142,152">
+          <p class="eyebrow">02 — Engineering</p>
+          <h2 class="heading">Designed<br />with purpose</h2>
+          <p class="body">Form follows function. Every line, every joint, every detail is considered.</p>
+        </div>
+        <div class="caption" data-frames="56,64,94,100">
+          <span class="caption__num">01</span>
+          <p><strong>Frame.</strong> Slim steel tubing, joined cleanly and finished in a deep cyan lacquer.</p>
+        </div>
+        <div class="caption" data-frames="104,112,154,160">
+          <span class="caption__num">02</span>
+          <p><strong>Drivetrain.</strong> Polished crankset, steel chain, flat pedals. Fewer parts, less to fail.</p>
+        </div>
+        <div class="caption" data-frames="164,172,212,219">
+          <span class="caption__num">03</span>
+          <p><strong>Wheels.</strong> Silver alloy rims, tan-wall tyres and fine steel spokes.</p>
+        </div>
+
+        <!-- PHASE 3 — EXPLODED -->
+        <div class="chapter chapter--left" data-frames="270,280,298,304">
+          <p class="eyebrow">03 — Exploded view</p>
+          <h2 class="heading">Every part<br />has a purpose</h2>
+          <p class="body">Discover the engineering behind every component.</p>
+        </div>
+
+        <!-- PHASE 4 — SHOWCASE -->
+        <div class="chapter chapter--top" data-frames="301,305,316,320">
+          <p class="eyebrow">04 — Components</p>
+          <h2 class="heading heading--wide">Nothing is extra.<br />Nothing is random.</h2>
+        </div>
+        <div class="labels" data-frames="298,304,316,320" aria-hidden="true">
+          <span class="label" data-anchor="0.50,0.305" data-side="up">Frame</span>
+          <span class="label" data-anchor="0.677,0.14" data-side="up">Cockpit</span>
+          <span class="label" data-anchor="0.448,0.667" data-side="down">Drivetrain</span>
+          <span class="label" data-anchor="0.915,0.60" data-anchor-portrait="0.20,0.40" data-side="down">Wheels</span>
+        </div>
+
+        <!-- PHASE 5 — REASSEMBLY -->
+        <div class="chapter chapter--left" data-frames="319,323,334,339">
+          <p class="eyebrow">05 — Reassembly</p>
+          <h2 class="heading">Precision in<br />every connection.</h2>
+        </div>
+
+        <!-- PHASE 6 — FINAL -->
+        <div class="chapter chapter--final" data-frames="352,366,9999,9999">
+          <p class="eyebrow">06 — Complete</p>
+          <h2 class="display display--sm">Built around<br class="br-m" /> every detail.</h2>
+          <div class="hero__foot">
+            <p class="lede">One bicycle. Countless details.<br />One complete experience.</p>
+            <div class="actions">
+              <a class="btn btn--dark" href="#components" data-goto="components">Explore the Components</a>
+              <a class="btn btn--ghost" href="#" data-goto="0">Back to Beginning</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Indikator fase -->
+        <ol class="rail" aria-hidden="true">
+          <li data-phase="reveal">Overview</li>
+          <li data-phase="detail">Engineering</li>
+          <li data-phase="explode">Exploded</li>
+          <li data-phase="showcase">Components</li>
+          <li data-phase="reassembly">Reassembly</li>
+          <li data-phase="final">Complete</li>
+        </ol>
+        <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+        <div class="loader" id="loader" aria-live="polite">Loading frames <span id="loader-pct">0</span>%</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
