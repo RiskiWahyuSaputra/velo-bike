@@ -96,7 +96,7 @@ h1, h2, p { margin: 0; }
 
 .sequence {
   position: relative;
-  height: 2000vh;
+  height: 3200vh;
 }
 
 .sequence__sticky {
